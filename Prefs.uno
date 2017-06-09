@@ -52,6 +52,9 @@ public sealed class FusePrefs : NativeModule {
     [Foreign(Language.ObjC)]
     private static extern(iOS) bool WriteImpl(string key, string val)
     @{
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        [prefs setObject:val forKey:key];
+        [prefs synchronize];
         return true;
     @}
 
@@ -86,7 +89,9 @@ public sealed class FusePrefs : NativeModule {
     [Foreign(Language.ObjC)]
     private static extern(iOS) string ReadImpl(string key)
     @{
-        return "";
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        NSString *val = [prefs stringForKey:key];
+        return val;
     @}
 
 }
