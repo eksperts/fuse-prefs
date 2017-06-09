@@ -1,0 +1,13 @@
+{
+  "RootNamespace": "",
+  "Packages": [
+    "Fuse",
+    "FuseJS"
+  ],
+  "Includes": [
+    "*"
+  ],
+  "Projects": [
+    "../prefs_include.unoproj"
+  ]
+}

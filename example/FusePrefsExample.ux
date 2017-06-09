@@ -1,0 +1,62 @@
+<App>
+    <JavaScript>
+        var Observable = require("FuseJS/Observable");
+        var Prefs = require("FusePrefs");
+
+        var val = Observable("");
+        val.onValueChanged(module, function(x) {
+            if (x === false) {
+                console.log("fuse-prefs does not work on this platform");
+            } else {
+                console.log("read from prefs: " + x);
+            }
+        });
+
+        function writeAnything() {
+            console.log("writing 'anything'...");
+            var saved = Prefs.write("test","anything");
+            if (saved === false) {
+                console.log("fuse-prefs does not work on this platform");
+            }
+        }
+
+        function writeSomething() {
+            console.log("writing 'something'...");
+            var saved = Prefs.write("test","something");
+            if (saved === false) {
+                console.log("fuse-prefs does not work on this platform");
+            }
+        }
+
+        function read() {
+            val.value = Prefs.read("test");
+        }
+
+        module.exports = {
+            writeAnything: writeAnything,
+            writeSomething: writeSomething,
+            read: read,
+            val: val
+        };
+    </JavaScript>
+    <StackPanel Alignment="VerticalCenter" Margin="8" ItemSpacing="8">
+        <Panel Height="56" Width="160">
+            <Clicked Handler="{writeAnything}" />
+            <Text Value="Write 'anything'" Alignment="Center" Color="#fff" />
+            <Rectangle CornerRadius="2" Color="#18f" />
+        </Panel>
+        <Panel Height="56" Width="160">
+            <Clicked Handler="{writeSomething}" />
+            <Text Value="Write 'something'" Alignment="Center" Color="#fff" />
+            <Rectangle CornerRadius="2" Color="#18f" />
+        </Panel>
+        <Panel Height="56" Width="160">
+            <Clicked Handler="{read}" />
+            <Text Value="Read" Alignment="Center" Color="#fff" />
+            <Rectangle CornerRadius="2" Color="#18f" />
+        </Panel>
+        <Panel Height="56" Width="160">
+            <Text Value="{val}" Alignment="Center" Color="#000" />
+        </Panel>
+    </StackPanel>
+</App>

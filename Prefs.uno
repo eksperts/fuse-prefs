@@ -72,7 +72,7 @@ public sealed class FusePrefs : NativeModule {
         return null;
     }
 
-    private static extern(!mobile) string ReadImpl(string key)
+    private static extern(!mobile) bool ReadImpl(string key)
     {
         return false;
     }
