@@ -35,7 +35,7 @@ public sealed class FusePrefs : NativeModule {
 
     private static extern(!mobile) bool WriteImpl(string key, string val)
     {
-        return true;
+        return false;
     }
 
     [Foreign(Language.Java)]
@@ -74,7 +74,7 @@ public sealed class FusePrefs : NativeModule {
 
     private static extern(!mobile) string ReadImpl(string key)
     {
-        return "";
+        return false;
     }
 
     [Foreign(Language.Java)]
