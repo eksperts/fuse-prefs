@@ -9,3 +9,5 @@ Basic usage:
 	var Prefs = require("FusePrefs");
 	Prefs.write("key", "value");
 	var key = Prefs.read("key");
+
+As an alternative, consider using [fuse-usersettings](https://github.com/bolav/fuse-usersettings) library by Bolav
