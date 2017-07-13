@@ -24,7 +24,7 @@ public sealed class FusePrefs : NativeModule {
         if (args.Length == 2)
         {
             var key = args[0] as string;
-            var val = args[1] as stringaaa;
+            var val = args[1] as string;
             if (key != null && val != null)
             {
                 return WriteImpl(key, val);
