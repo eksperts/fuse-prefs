@@ -12,4 +12,4 @@ before_script:
     sudo installer -pkg fuse-installer.pkg -target /
 
 script:
-  - uno build -tios FuseCloud/FuseCloud.unoproj
+  - uno build -tios example/FusePrefsExample.unoproj
